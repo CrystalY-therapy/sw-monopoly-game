@@ -1,46 +1,28 @@
 const express = require("express");
+const path = require("path");
 const cors = require("cors");
 
 const app = express();
-const PORT = process.env.PORT || 3001; // Ensures compatibility with Render
 
+// Enable CORS to allow frontend to communicate with the backend
 app.use(cors());
+
+// Middleware to parse JSON
 app.use(express.json());
 
-// Simple test route to check if the server is running
+// Set the PORT (Render requires process.env.PORT)
+const PORT = process.env.PORT || 3001;
+
+// Serve the React frontend (if applicable)
+app.use(express.static(path.join(__dirname, "../client/build")));
+
 app.get("/", (req, res) => {
-    res.send("Social Work Monopoly Game Server is Running!");
+    res.sendFile(path.join(__dirname, "../client/build", "index.html"));
 });
 
-// Placeholder for game logic (e.g., adding players, rolling dice)
-let players = [];
-
-app.post("/add-player", (req, res) => {
-    const { name, piece } = req.body;
-    if (!name || !piece) {
-        return res.status(400).json({ message: "Name and piece are required!" });
-    }
-    players.push({ name, piece, points: 0, position: 0 });
-    res.json({ message: "Player added!", players });
-});
-
-app.post("/roll-dice", (req, res) => {
-    const { name } = req.body;
-    const player = players.find(p => p.name === name);
-    if (!player) {
-        return res.status(404).json({ message: "Player not found!" });
-    }
-    const roll = Math.floor(Math.random() * 6) + 1;
-    player.position = (player.position + roll) % 24; // Assuming 24 board spaces
-    player.points += 1; // Award 1 point per move
-
-    // Award extra points for special tiles
-    const bonusTiles = [5, 12, 18]; // Example positions
-    if (bonusTiles.includes(player.position)) {
-        player.points += 2; // Extra points for landing on bonus spots
-    }
-
-    res.json({ message: `${name} rolled a ${roll}!`, player });
+// Example API endpoint
+app.get("/api/hello", (req, res) => {
+    res.json({ message: "Hello from the server!" });
 });
 
 // Start the server
