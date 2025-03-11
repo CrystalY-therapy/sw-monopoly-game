@@ -1,0 +1,26 @@
+import React from "react";
+import "./Board.css";
+
+const boardTiles = [
+  "Start", "Advocacy Center", "Community Fund", "Social Justice Org", "Crisis Event", "Mental Health Clinic",
+  "Self-Care Break", "Child Welfare Agency", "Social Work Fund", "Nonprofit HQ", "Policy Change Event",
+  "Housing Support", "Crisis Hotline", "Ethics Review", "Go To Self-Care", "Disability Services",
+  "Advocacy Training", "Public Awareness", "Grant Writing", "Policy Development", "Bonusly Cards", "⭐"
+];
+
+const Board = ({ players }) => {
+  return (
+    <div className="board-container">
+      <h2>Game Board</h2>
+      <div className="board">
+        {boardTiles.map((tile, index) => (
+          <div key={index} className={`tile ${tile.replace(/\s+/g, '-').toLowerCase()}`}>
+            {tile}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Board;

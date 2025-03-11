@@ -1,0 +1,20 @@
+select {
+  padding: 5px;
+  font-size: 16px;
+}
+
+select option {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+select option::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}

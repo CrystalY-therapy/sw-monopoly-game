@@ -1,0 +1,48 @@
+.board-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(5, 100px);
+  grid-template-rows: repeat(5, 100px);
+  gap: 5px;
+  justify-content: center;
+}
+
+.tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  border: 2px solid black;
+  background-color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Custom colors for specific tiles */
+.tile.start { background-color: white; }
+.tile.advocacy-center { background-color: lightblue; }
+.tile.community-fund { background-color: white; }
+.tile.social-justice-org { background-color: pink; }
+.tile.crisis-event { background-color: gray; }
+.tile.mental-health-clinic { background-color: orange; }
+.tile.self-care-break { background-color: lightblue; }
+.tile.child-welfare-agency { background-color: red; }
+.tile.social-work-fund { background-color: white; }
+.tile.nonprofit-hq { background-color: yellow; }
+.tile.policy-change-event { background-color: white; }
+.tile.housing-support { background-color: lightgreen; }
+.tile.crisis-hotline { background-color: red; }
+.tile.ethics-review { background-color: blue; }
+.tile.go-to-self-care { background-color: lightblue; }
+.tile.disability-services { background-color: blue; }
+.tile.advocacy-training { background-color: orange; }
+.tile.public-awareness { background-color: pink; }
+.tile.grant-writing { background-color: yellow; }
+.tile.policy-development { background-color: green; }
+.tile.bonusly-cards { background-color: white; }
+.tile.star { background-color: white; }

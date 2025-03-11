@@ -1,0 +1,18 @@
+.board-container {
+  text-align: center;
+}
+
+.board {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  border: 2px solid black;
+  padding: 20px;
+}
+
+.player {
+  margin: 10px;
+  padding: 5px 10px;
+  background-color: lightblue;
+  border-radius: 5px;
+}
